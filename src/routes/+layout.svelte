@@ -6,40 +6,43 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+
+	let searchTerm = '';
 </script>
 
 <!-- App Shell -->
 <AppShell>
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
-		<AppBar>
+		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 			<svelte:fragment slot="lead">
-				<strong class="text-xl uppercase">Svelte-Com</strong>
+				<a href="/" class="text-xl uppercase font-bold">Svelte-Com</a>
 			</svelte:fragment>
+
+			<svelte:fragment>
+				<input class="input w-96 px-4 py-2 text-sm" type="search" name="demo" bind:value={searchTerm} placeholder="Search..." />
+			</svelte:fragment>
+
 			<svelte:fragment slot="trail">
-				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://discord.gg/EXqV7W8MtY"
-					target="_blank"
-					rel="noreferrer"
-				>
-					Discord
+				<a href="/favorites" class="btn btn-sm px-4 variant-filled-secondary">
+					<img src="/star.png" alt="star icon" class="w-4">
+					<span>Saved Items</span>
 				</a>
 				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://twitter.com/SkeletonUI"
-					target="_blank"
-					rel="noreferrer"
+					class="btn btn-sm px-4 variant-filled"
+					href="/login"
+					data-sveltekit-preload-data="hover"
 				>
-					Twitter
+				<img src="/login.png" alt="login icon" class="w-4">
+					<span>Sign in</span>
 				</a>
 				<a
-					class="btn btn-sm variant-ghost-surface"
-					href="https://github.com/skeletonlabs/skeleton"
-					target="_blank"
-					rel="noreferrer"
+					class="btn btn-sm px-4 variant-filled-primary"
+					href="/register"
+					data-sveltekit-preload-data="hover"
 				>
-					GitHub
+				<img src="/register.png" alt="register icon" class="w-4">
+					<span>Sign up</span>
 				</a>
 			</svelte:fragment>
 		</AppBar>
