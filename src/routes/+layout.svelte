@@ -1,11 +1,26 @@
 <script lang='ts'>
-	// The ordering of these imports is critical to your app working properly
+	// The ordering of these imports is critical for app to work properly
 	import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	// If you have source.organizeImports set to true in VSCode, then it will auto change this ordering
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	// floating ui imports for pop ups to work
+	import { computePosition, autoUpdate, offset, shift, flip, arrow } from '@floating-ui/dom';
+	import { storePopup } from '@skeletonlabs/skeleton';
+
+	import { popup } from '@skeletonlabs/skeleton';
+    import type { PopupSettings } from '@skeletonlabs/skeleton';
+
+	// populate skeleton's popup store
+	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
+
+	const popupClick: PopupSettings = {
+        event: 'hover',
+        target: "popupName",
+        placement: 'bottom'
+    }
+
 
 	let searchTerm = '';
 </script>

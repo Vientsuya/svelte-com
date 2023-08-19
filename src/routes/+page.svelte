@@ -1,2 +1,5 @@
+<script lang="ts">
+	
+</script>
 
-<button type="button" class="btn variant-glass-primary">siema</button>
+					
