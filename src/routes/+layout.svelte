@@ -29,12 +29,62 @@
 <AppShell>
 	<svelte:fragment slot="header">
 		<!-- App Bar -->
-		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
-			<svelte:fragment slot="lead">
+		<div class="app-bar flex flex-col justify-center items-center bg-surface-100-800-token space-y-4 p-4">
+			<div class="w-4/5 grid grid-cols-3">
+				<a href="/" class="text-xl uppercase font-bold">Svelte-Com</a>
+
+				<input class="input w-96 px-4 py-2 text-sm" type="search" name="demo" bind:value={searchTerm} placeholder="Search..." />
+				
+				<div class="display flex justify-end">
+					<button class="btn btn-sm px-4 font-bold">
+						<img src="/language.png" alt="language icon" class="w-4">
+						<span>EN</span>
+					</button>
+
+					<button class="btn btn-sm px-4 font-bold">
+						<img src="/money.png" alt="money icon" class="w-4">
+						<span>PLN</span>
+					</button>
+				</div>
+			</div>
+
+			<div class="w-4/5 flex justify-between">
+				<div class="bg-red-400 col-span-2">Categories</div>
+
+				<div>
+				<a href="/favorites" class="btn btn-sm px-4 variant-filled-secondary">
+					<img src="/star.png" alt="star icon" class="w-4">
+					<span>Saved Items</span>
+				</a>
+				<a
+					class="btn btn-sm px-4 variant-filled"
+					href="/login"
+					data-sveltekit-preload-data="hover"
+				>
+				<img src="/login.png" alt="login icon" class="w-4">
+					<span>Sign in</span>
+				</a>
+				<a
+					class="btn btn-sm px-4 variant-filled-primary"
+					href="/register"
+					data-sveltekit-preload-data="hover"
+				>
+				<img src="/register.png" alt="register icon" class="w-4">
+					<span>Sign up</span>
+				</a>
+				</div>
+			</div>
+		</div>
+	</svelte:fragment>
+	<!-- Page Route Content -->
+	<slot />
+</AppShell>
+
+<!--<svelte:fragment slot="lead">
 				<a href="/" class="text-xl uppercase font-bold">Svelte-Com</a>
 			</svelte:fragment>
 
-			<svelte:fragment>
+			<svelte:fragment slot="default">
 				<input class="input w-96 px-4 py-2 text-sm" type="search" name="demo" bind:value={searchTerm} placeholder="Search..." />
 			</svelte:fragment>
 
@@ -60,8 +110,4 @@
 					<span>Sign up</span>
 				</a>
 			</svelte:fragment>
-		</AppBar>
-	</svelte:fragment>
-	<!-- Page Route Content -->
-	<slot />
-</AppShell>
+-->
